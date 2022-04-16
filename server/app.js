@@ -9,6 +9,7 @@ app.use(cors());
 app.get("/", async (req, res) => {
   const baseURL = "https://www.metaweather.com/api/location";
   const { location } = req.query;
+  console.log("location",location);
   if (!location) {
     res.send({
       error: 'Insira uma localização como parâmetro de busca. As localizações suportadas podem ser encontradas em: https://www.metaweather.com/map/'

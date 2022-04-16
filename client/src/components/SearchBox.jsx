@@ -6,13 +6,14 @@ import api from "../services/api";
 
 const SearchBox = (props) => {
   const [locations, setLocations] = useState([]);
-// HI
+
   const handleOnSelect = (location) => {
     props.setLoading(true);
     api
-      .get(`location=${location.name}`)
+      .get(`?location=${location.name}`)
       .then((forecast) => {
         props.setForecast(forecast.data);
+        props.setLoading(false);
       })
       .catch((error) => {
         console.error(error);
