@@ -9,24 +9,11 @@ function App() {
   const [forecast, setForecast] = useState({});
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (Object.keys(forecast).length === 0) {
-      api
-        .get("location=Salvador")
-        .then((forecast) => {
-          setForecast(forecast.data);
-        })
-        .catch((error) => {
-          console.error(erro);
-        });
-    }
-  }, [forecast]);
-
   const Weather =
-    loading || Object.keys(forecast).length === 0 ? (
+  loading || forecast.woeid === null ? (
       <h1>Loading...</h1>
     ) : (
-      <WeatherCard forecast={forecast} />
+      <WeatherCard forecast={forecast} key = {forecast.woeid}/>
     );
 
   return (
