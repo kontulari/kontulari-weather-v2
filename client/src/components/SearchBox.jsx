@@ -6,7 +6,7 @@ import api from "../services/api";
 
 const SearchBox = (props) => {
   const [locations, setLocations] = useState([]);
-
+// HI
   const handleOnSelect = (location) => {
     props.setLoading(true);
     api
